@@ -1,0 +1,45 @@
+
+ <!-- <div class="container">  
+   <button type="button" class="btn btn-primary" (click) = "show()">Update</button>
+ </div>
+  -->
+<div [style.display]="showModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Edit Contact</h4>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit(name)">                   
+          <div class="col">
+            <div class="row-md">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" #name formControlName="name" class="form-control" [(ngModel)]="contact.name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                  <div *ngIf="f.name.errors.required">Please enter the name</div>
+                  <!-- <div *ngIf="f.name.errors.unique">Name already exist</div> -->
+                </div>
+              </div>
+            </div> 
+            <br>
+            <div class="row-md">
+              <div class="form-group">
+                <label>Phone</label>
+                <input type="text" formControlName="mobile" class="form-control" [(ngModel)]="contact.phone" [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" />
+                <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+                  <div *ngIf="f.mobile.errors">Mobile must be Valid and at least 10 digits</div>                                    
+                </div>
+              </div>
+            </div>                         
+          </div>
+          <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-dismiss="modal" (click) = "hide()">Close</button>        
+      </div>
+    </div>
+  </div>
+</div>
+  

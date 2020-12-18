@@ -1,0 +1,19 @@
+@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
+
+div.divBorder{
+    border:black solid;
+    margin: 70px 400px;
+    background-color: white;
+}
+button.add{
+    margin-left: 150px;
+    color: white;
+    background-color: darkblue;
+}
+button.deleteBtn{
+    background-color: darkred;
+    color: white;
+}
+tr:hover{
+    background-color: lightgray;
+}

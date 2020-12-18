@@ -1,0 +1,51 @@
+<div class="divBorder">
+    <br>
+    <h4 style="color: brown;font-size: xx-large;"><strong>Phone Book App</strong> </h4>
+    <br>
+    <div>        
+            Contacts
+            <button type="button" class="add btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click) = "add()">+ Add Contact</button>
+            <!-- <div [style.display]="showModal ? 'block' : 'none'" id="myModal">
+                <app-addcontacts></app-addcontacts>
+            </div> -->
+            <!-- <button type="button" class="add btn btn-primary" data-toggle="modal" data-target="#myModal" (click) = "add()">+ Add contact</button> -->
+            <!-- <div class="container">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click) = "add()">+ Add Contact</button>
+            </div> -->       
+  
+    </div>
+    <br>
+    <div>
+        <!-- <input class="mainLoginInput" type="text" placeholder="&#61442;"/> <br/> -->
+        <input class="searchIcon" [(ngModel)]="searchContact" type="text" size="40" placeholder= " Search for contact by name...">
+        <br>
+        <table class="table">
+            <tbody>
+                <tr (click)="update()" *ngFor="let item of contacts | filter:searchContact">
+                    <td style="text-align: start;">{{item.name}}<br><span class="fa fa-phone">{{item.phone}}</span></td>    
+                    <td><button (click)="deleteContact(item.name)" class="deleteBtn fa fa-trash"></button></td>            
+                </tr>
+            </tbody>
+        </table>
+    </div>
+   
+
+    <!-- <div>
+        <app-displaycontacts></app-displaycontacts>
+    </div> -->
+    
+    
+    <!-- <div>
+        <app-addcontacts></app-addcontacts>
+    </div> -->
+    
+    <!-- <div>
+        <app-updatecontacts></app-updatecontacts>
+    </div> -->
+
+</div>
+
+<div>
+    <router-outlet></router-outlet>
+</div>
+
